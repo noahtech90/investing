@@ -18,7 +18,18 @@ class Portfolio:
             'IN', 0,
             'CH', 0,
         }
+    def total_market_value(self):
+        market_value = 0
+        for asset in self.assets:
+            market_value += asset.value
+        return market_value
 
+
+    def total_liability_value(self):
+        liability_value = 0
+        for liability in self.liabilities:
+            liability_value += liability.value
+        return liability_value
 
 class Asset:
 
