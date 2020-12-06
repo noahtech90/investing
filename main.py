@@ -1,5 +1,7 @@
 # Python investing program to balance asset classes within a portfolio
 
+# ***pack annual expenses into one liability
+
 class Portfolio:
 
     def __init__(self):
@@ -19,7 +21,7 @@ class Portfolio:
             'CH', 0,
         }
 
-    def total_market_value(self):
+    def total_asset_value(self):
         market_value = 0
         for asset in self.assets:
             market_value += asset.value
@@ -31,6 +33,10 @@ class Portfolio:
             liability_value += liability.value
         return liability_value
 
+    def net_worth(self, assets, liabilities):
+        return assets - liabilities
+
+
 
 class Asset:
 
@@ -41,14 +47,19 @@ class Asset:
         self.potential_annual_return = None
         self.risk = None
 
+    def return_value(self):
+        return self.value
+
 
 class Liability:
 
     def __init__(self):
         self.value = 0
-        self.interest_rate = 0.03
+        self.interest_rate = 0.00
         self.contract_length = 0
 
+    def return_value(self):
+        return self.value
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
