@@ -21,6 +21,12 @@ class Portfolio:
             'CH', 0,
         }
 
+    def add_asset(self, new_asset):
+        self.assets.append(new_asset)
+
+    def add_liability(self, new_liability):
+        self.liabilities.append(new_liability)
+
     def total_asset_value(self):
         market_value = 0
         for asset in self.assets:
@@ -71,3 +77,9 @@ if __name__ == '__main__':
     asset_two = Asset(3000, 'equity', 'EM', .06, .6)
 
     liability_one = Liability(1500, .03, 30)
+
+    my_portfolio.add_asset(asset_one)
+    my_portfolio.add_asset(asset_two)
+    my_portfolio.add_liability(liability_one)
+
+    print(my_portfolio.net_worth())
