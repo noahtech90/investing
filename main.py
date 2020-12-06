@@ -4,6 +4,9 @@
 
 # ***pack annual expenses into one liability
 
+import numpy as np
+import pandas as pd
+
 class Portfolio:
 
     def __init__(self):
@@ -17,11 +20,15 @@ class Portfolio:
             'direct_investment': 0,
         }
         self.country_distribution = {
-            'US', 0,
-            'UK', 0,
-            'IN', 0,
-            'CH', 0,
+            'US', 5,
+            'UK', 2,
+            'IN', 2,
+            'CH', 1,
         }
+
+    def country_allocation(self):
+        country_dataframe = pd.DataFrame.from_dict(self.country_distribution)
+        return country_dataframe
 
     def add_asset(self, new_asset):
         self.assets.append(new_asset)
@@ -87,3 +94,4 @@ if __name__ == '__main__':
     my_portfolio.add_liability(liability_one)
 
     print(my_portfolio.net_worth())
+    print(my_portfolio.country_allocation())
