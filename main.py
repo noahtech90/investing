@@ -74,7 +74,7 @@ if __name__ == '__main__':
     my_portfolio = Portfolio()
 
     asset_one = Asset(1000, 'equity', 'US', .1, .4)
-    asset_two = Asset(3000, 'equity', 'EM', .06, .6)
+    asset_two = Asset(4000, 'equity', 'EM', .06, .6)
 
     liability_one = Liability(1500, .03, 30)
 
