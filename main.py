@@ -11,8 +11,11 @@ class Portfolio:
             'direct_investment': 0,
         }
         self.country_distribution = {
+            "US": 0,
+            "UK": 0,
 
         }
+
 
 class Asset:
 
