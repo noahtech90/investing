@@ -20,6 +20,8 @@ class Asset:
         self.asset_class = None
         self.country = None
         self.value = None
+        self.potential_annual_return = None
+        self.risk = None
 
 
 # Press the green button in the gutter to run the script.
