@@ -1,5 +1,7 @@
 # Python investing program to balance asset classes within a portfolio
 
+# Maybe act as a check, examining age of user and various financial ratios to determine what can be improved
+
 # ***pack annual expenses into one liability
 
 class Portfolio:
@@ -40,7 +42,9 @@ class Portfolio:
         return liability_value
 
     def net_worth(self):
-        return self.total_asset_value() - self.total_liability_value()
+        net_worth = self.total_asset_value() - self.total_liability_value()
+        print(f"Net Worth: {net_worth}")
+        return net_worth
 
 
 class Asset:
