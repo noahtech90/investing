@@ -13,8 +13,6 @@ class Portfolio:
             
         }
 
-
-
 class Asset:
 
     def __init__(self):
