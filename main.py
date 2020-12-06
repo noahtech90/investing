@@ -33,19 +33,18 @@ class Portfolio:
             liability_value += liability.value
         return liability_value
 
-    def net_worth(self, assets, liabilities):
-        return assets - liabilities
-
+    def net_worth(self):
+        return self.total_asset_value() - self.total_liability_value()
 
 
 class Asset:
 
-    def __init__(self):
-        self.value = 0
-        self.asset_class = None
-        self.country = None
-        self.potential_annual_return = None
-        self.risk = None
+    def __init__(self, value, asset_class, country, potential_annual_return, risk):
+        self.value = value
+        self.asset_class = asset_class
+        self.country = country
+        self.potential_annual_return = potential_annual_return
+        self.risk = risk
 
     def return_value(self):
         return self.value
@@ -53,15 +52,22 @@ class Asset:
 
 class Liability:
 
-    def __init__(self):
-        self.value = 0
-        self.interest_rate = 0.00
-        self.contract_length = 0
+    def __init__(self, value, interest_rate, contract_length):
+        self.value = value
+        self.interest_rate = interest_rate
+        self.contract_length = contract_length
 
     def return_value(self):
         return self.value
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print("let's go")
 
+# Press the green button in the gutter to run the script.
+
+if __name__ == '__main__':
+
+    my_portfolio = Portfolio()
+
+    asset_one = Asset(1000, 'equity', 'US', .1, .4)
+    asset_two = Asset(3000, 'equity', 'EM', .06, .6)
+
+    liability_one = Liability(1500, .03, 30)
