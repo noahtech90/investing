@@ -4,6 +4,8 @@ class Portfolio:
 
     def __init__(self):
         self.market_value = 0
+        self.assets = []
+        self.liabilities = []
         self.asset_distribution = {
             'equity': 0,
             'fixed_income': 0,
@@ -21,11 +23,19 @@ class Portfolio:
 class Asset:
 
     def __init__(self):
+        self.value = 0
         self.asset_class = None
         self.country = None
-        self.value = None
         self.potential_annual_return = None
         self.risk = None
+
+
+class Liability:
+
+    def __init__(self):
+        self.value = 0
+        self.interest_rate = 0.03
+        self.contract_length = 0
 
 
 # Press the green button in the gutter to run the script.
