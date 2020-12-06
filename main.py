@@ -8,6 +8,7 @@ class Portfolio:
             'equity': 0,
             'fixed_income': 0,
             'real_estate': 0,
+            'direct_investment': 0,
         }
         self.country_distribution = {
 
