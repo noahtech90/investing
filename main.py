@@ -9,14 +9,15 @@ class Portfolio:
             'fixed_income': 0,
             'real_estate': 0,
         }
-        self.country_allocation = {
-            
+        self.country_distribution = {
+
         }
 
 class Asset:
 
     def __init__(self):
         self.asset_class = None
+        self.country = None
         self.value = None
 
 
