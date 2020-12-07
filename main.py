@@ -20,14 +20,14 @@ class Portfolio:
             'direct_investment': 0,
         }
         self.country_distribution = {
-            'US', 5,
-            'UK', 2,
-            'IN', 2,
-            'CH', 1,
+            'US': 5,
+            'UK': 2,
+            'IN': 2,
+            'CH': 1,
         }
 
     def country_allocation(self):
-        country_dataframe = pd.DataFrame.from_dict(self.country_distribution)
+        country_dataframe = pd.DataFrame([self.country_distribution])
         return country_dataframe
 
     def add_asset(self, new_asset):
@@ -94,4 +94,5 @@ if __name__ == '__main__':
     my_portfolio.add_liability(liability_one)
 
     print(my_portfolio.net_worth())
+    print(type(my_portfolio.country_distribution))
     print(my_portfolio.country_allocation())
