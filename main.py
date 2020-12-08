@@ -95,7 +95,6 @@ if __name__ == '__main__':
     my_portfolio.add_asset(asset_two)
     my_portfolio.add_liability(liability_one)
 
-    print(my_portfolio.net_worth())
+    #print(my_portfolio.net_worth())
     allocation_dataframe = my_portfolio.country_allocation()
-    print(allocation_dataframe.columns)
-    # print(allocation_dataframe.value_counts(normalize=True) * 100)
+    print(allocation_dataframe.groupby(level=0).apply(lambda x: 100*x/float(x.sum())))
