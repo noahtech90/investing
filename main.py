@@ -7,6 +7,7 @@
 import numpy as np
 import pandas as pd
 
+
 class Portfolio:
 
     def __init__(self):
@@ -20,10 +21,12 @@ class Portfolio:
             'direct_investment': 0,
         }
         self.country_distribution = {
-            'US': 5,
-            'UK': 2,
-            'IN': 2,
-            'CH': 1,
+            'country': {
+                'US': 5,
+                'UK': 2,
+                'IN': 2,
+                'CH': 1,
+            }
         }
 
     def country_allocation(self):
@@ -81,7 +84,6 @@ class Liability:
 # Press the green button in the gutter to run the script.
 
 if __name__ == '__main__':
-
     my_portfolio = Portfolio()
 
     asset_one = Asset(1000, 'equity', 'US', .1, .4)
@@ -95,3 +97,5 @@ if __name__ == '__main__':
 
     print(my_portfolio.net_worth())
     allocation_dataframe = my_portfolio.country_allocation()
+    print(allocation_dataframe.columns)
+    # print(allocation_dataframe.value_counts(normalize=True) * 100)
