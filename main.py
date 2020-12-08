@@ -97,4 +97,4 @@ if __name__ == '__main__':
 
     #print(my_portfolio.net_worth())
     allocation_dataframe = my_portfolio.country_allocation()
-    print(allocation_dataframe.groupby(level=0).apply(lambda x: 100*x/float(x.sum())))
+    print(allocation_dataframe['country'].sum())
