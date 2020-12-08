@@ -94,5 +94,4 @@ if __name__ == '__main__':
     my_portfolio.add_liability(liability_one)
 
     print(my_portfolio.net_worth())
-    print(type(my_portfolio.country_distribution))
-    print(my_portfolio.country_allocation())
+    allocation_dataframe = my_portfolio.country_allocation()
