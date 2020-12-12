@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 class Asset:
 
     def __init__(self, value, asset_class, country, potential_annual_return, risk):
