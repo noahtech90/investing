@@ -4,9 +4,10 @@
 
 # ***pack annual expenses into one liability
 
+
 from portfolio import Portfolio
 from assets_liabilities import Asset, Liability
-
+import pandas as pd
 
 # Press the green button in the gutter to run the script.
 
