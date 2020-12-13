@@ -3,25 +3,19 @@
 # Maybe act as a check, examining age of user and various financial ratios to determine what can be improved
 
 # ***pack annual expenses into one liability
-
-
 from portfolio import Portfolio
 from assets_liabilities import Asset, Liability
-import pandas as pd
 
-# Press the green button in the gutter to run the script.
+my_portfolio = Portfolio()
 
-if __name__ == '__main__':
-    my_portfolio = Portfolio()
+asset_one = Asset(1000, 'equity', 'US', .1, .4)
+asset_two = Asset(4000, 'equity', 'EM', .06, .6)
 
-    asset_one = Asset(1000, 'equity', 'US', .1, .4)
-    asset_two = Asset(4000, 'equity', 'EM', .06, .6)
+liability_one = Liability(1500, .03, 30)
 
-    liability_one = Liability(1500, .03, 30)
+my_portfolio.add_asset(asset_one)
+my_portfolio.add_asset(asset_two)
+my_portfolio.add_liability(liability_one)
 
-    my_portfolio.add_asset(asset_one)
-    my_portfolio.add_asset(asset_two)
-    my_portfolio.add_liability(liability_one)
-
-    allocation_dataframe = my_portfolio.country_allocation()
-    print(allocation_dataframe['country'].sum())
+allocation_dataframe = my_portfolio.country_allocation()
+print(allocation_dataframe)
