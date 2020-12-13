@@ -1,5 +1,5 @@
 import pandas as pd
-
+import random
 
 class Portfolio:
 
@@ -30,8 +30,9 @@ class Portfolio:
     def add_asset(self, new_asset):
         new_asset_catagory = str(new_asset.asset_class)
         asset_type_count = self.asset_type_counter(new_asset.asset_class)
+        random_num = round(random.random(), 4)
         self.assets.append(new_asset)
-        self.asset_distribution[new_asset_catagory + str(asset_type_count)] = new_asset.value
+        self.asset_distribution[new_asset_catagory + str(asset_type_count + 1) + str(random_num)] = new_asset.value
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
