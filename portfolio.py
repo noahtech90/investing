@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class Portfolio:
 
     def __init__(self):
@@ -7,13 +8,8 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
         self.asset_distribution = {
-            'asset': {
-
-            }
         }
         self.country_distribution = {
-            'country': {
-            }
         }
 
     def country_allocation(self):
@@ -26,6 +22,7 @@ class Portfolio:
 
     def add_asset(self, new_asset):
         self.assets.append(new_asset)
+        self.asset_distribution[len(self.asset_distribution) + 1] = new_asset.asset_class
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
