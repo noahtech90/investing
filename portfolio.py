@@ -23,6 +23,7 @@ class Portfolio:
 
     def country_allocation(self):
         country_dataframe = pd.DataFrame([self.country_distribution])
+        country_dataframe['country_percentage'] = (country_dataframe['country'] / country_dataframe['country'].sum())
         return country_dataframe
 
     def add_asset(self, new_asset):
