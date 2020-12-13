@@ -20,9 +20,18 @@ class Portfolio:
         asset_allocation = pd.DataFrame([self.asset_distribution])
         return asset_allocation
 
+    def asset_type_counter(self, new_asset_class):
+        counter = 0
+        for asset in self.asset_distribution:
+            if asset == new_asset_class:
+                counter += 1
+        return counter
+
     def add_asset(self, new_asset):
+        new_asset_catagory = str(new_asset.asset_class)
+        asset_type_count = self.asset_type_counter(new_asset.asset_class)
         self.assets.append(new_asset)
-        self.asset_distribution[len(self.asset_distribution) + 1] = new_asset.asset_class
+        self.asset_distribution[new_asset_catagory + str(asset_type_count)] = new_asset.value
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
