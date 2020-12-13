@@ -19,3 +19,4 @@ my_portfolio.add_liability(liability_one)
 
 allocation_dataframe = my_portfolio.country_allocation()
 print(allocation_dataframe)
+print(my_portfolio.asset_allocation())

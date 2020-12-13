@@ -7,17 +7,12 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
         self.asset_distribution = {
-            'equity': 0,
-            'fixed_income': 0,
-            'real_estate': 0,
-            'direct_investment': 0,
+            'asset': {
+
+            }
         }
         self.country_distribution = {
             'country': {
-                'US': 5,
-                'UK': 2,
-                'IN': 2,
-                'CH': 1,
             }
         }
 
