@@ -7,33 +7,28 @@ class Portfolio:
         self.market_value = 0
         self.assets = []
         self.liabilities = []
-        self.asset_distribution = {
-            'Name': [],
-            'Type': []
-        }
-        self.country_distribution = {
-        }
+
 
     def country_allocation(self):
-        country_dataframe = pd.DataFrame([self.country_distribution])
+        country_dataframe = pd.DataFrame([self.assets])
         return country_dataframe
 
     def asset_allocation(self):
-        asset_allocation = pd.DataFrame([self.asset_distribution])
+        asset_allocation = pd.DataFrame(self.assets)
         return asset_allocation
 
     def asset_type_counter(self, new_asset_class):
         counter = 0
-        for asset in self.assets:
-            if asset.asset_class == new_asset_class:
-                counter += 1
+        if len(self.assets) > 0:
+            for asset in self.assets:
+                if asset[0] == new_asset_class:
+                    counter += 1
         return counter
 
     def add_asset(self, new_asset):
         new_asset_catagory = str(new_asset.asset_class)
         asset_type_count = self.asset_type_counter(new_asset_catagory)
-        self.assets.append(new_asset)
-        self.asset_distribution[new_asset_catagory + str(asset_type_count + 1)] = new_asset.value
+        self.assets.append([new_asset_catagory + str(asset_type_count + 1), new_asset.asset_class, new_asset.value])
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
