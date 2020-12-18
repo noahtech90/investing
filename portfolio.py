@@ -22,17 +22,16 @@ class Portfolio:
 
     def asset_type_counter(self, new_asset_class):
         counter = 0
-        for asset in self.asset_distribution:
-            if asset == new_asset_class:
+        for asset in self.assets:
+            if asset.asset_class == new_asset_class:
                 counter += 1
         return counter
 
     def add_asset(self, new_asset):
         new_asset_catagory = str(new_asset.asset_class)
         asset_type_count = self.asset_type_counter(new_asset.asset_class)
-        random_num = round(random.random(), 4)
         self.assets.append(new_asset)
-        self.asset_distribution[new_asset_catagory + str(asset_type_count + 1) + str(random_num)] = new_asset.value
+        self.asset_distribution[new_asset_catagory + str(asset_type_count + 1)] = new_asset.value
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
