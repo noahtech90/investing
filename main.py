@@ -5,6 +5,7 @@
 # ***pack annual expenses into one liability
 from portfolio import Portfolio
 from assets_liabilities import Asset, Liability
+from df_functions import PortfolioDataFrame
 
 my_portfolio = Portfolio()
 
@@ -19,9 +20,14 @@ liability_two = Liability(6500, .03, 30)
 
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
+my_portfolio.add_asset(asset_four)
+my_portfolio.add_asset(asset_three)
 my_portfolio.add_asset(asset_five)
-my_portfolio.add_liability(liability_one)
-my_portfolio.add_liability(liability_two)
+#my_portfolio.add_liability(liability_one)
+#my_portfolio.add_liability(liability_two)
 
-asset_df = my_portfolio.asset_allocation()
-print(asset_df)
+#portfolio_dataframe = PortfolioDataFrame(my_portfolio.generate_dataframe())
+portfolio_dataframe = my_portfolio.generate_dataframe()
+print(portfolio_dataframe)
+print(portfolio_dataframe.groupby("Country")["Value"].sum()/ portfolio_dataframe['Value'].sum())
+

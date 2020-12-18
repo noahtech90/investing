@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class Portfolio:
 
     def __init__(self):
@@ -7,7 +8,7 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
 
-    def asset_allocation(self):
+    def generate_dataframe(self):
         asset_allocation = pd.DataFrame(self.assets, columns=["Name", "Type", "Country", "Value", "Return", "Risk"])
         return asset_allocation
 
@@ -20,11 +21,11 @@ class Portfolio:
         return counter
 
     def add_asset(self, new_asset):
-        new_asset_catagory = str(new_asset.asset_class)
-        asset_type_count = self.asset_type_counter(new_asset_catagory)
-        new_asset_name = new_asset_catagory + str(asset_type_count + 1)
+        asset_type_count = self.asset_type_counter(new_asset.asset_class)
+        new_asset_name = new_asset.asset_class + str(asset_type_count + 1)
         self.assets.append(
-            [new_asset_name, new_asset.asset_class, new_asset.country, new_asset.value, new_asset.potential_annual_return, new_asset.risk])
+            [new_asset_name, new_asset.asset_class, new_asset.country, new_asset.value,
+             new_asset.potential_annual_return, new_asset.risk])
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)
