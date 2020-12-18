@@ -1,5 +1,4 @@
 import pandas as pd
-import random
 
 class Portfolio:
 
@@ -8,27 +7,27 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
 
-
     def country_allocation(self):
         country_dataframe = pd.DataFrame([self.assets])
         return country_dataframe
 
     def asset_allocation(self):
-        asset_allocation = pd.DataFrame(self.assets)
+        asset_allocation = pd.DataFrame(self.assets, columns=["Name", "Type", "Country", "Value", "Return", "Risk"])
         return asset_allocation
 
     def asset_type_counter(self, new_asset_class):
         counter = 0
         if len(self.assets) > 0:
             for asset in self.assets:
-                if asset[0] == new_asset_class:
+                if asset[1] == new_asset_class:
                     counter += 1
         return counter
 
     def add_asset(self, new_asset):
         new_asset_catagory = str(new_asset.asset_class)
         asset_type_count = self.asset_type_counter(new_asset_catagory)
-        self.assets.append([new_asset_catagory + str(asset_type_count + 1), new_asset.asset_class, new_asset.value])
+        self.assets.append(
+            [new_asset_catagory + str(asset_type_count + 1), new_asset.asset_class, new_asset.country, new_asset.value, new_asset.potential_annual_return, new_asset.risk])
 
     def add_liability(self, new_liability):
         self.liabilities.append(new_liability)

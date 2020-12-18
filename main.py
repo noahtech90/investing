@@ -19,8 +19,6 @@ liability_two = Liability(6500, .03, 30)
 
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
-my_portfolio.add_asset(asset_three)
-my_portfolio.add_asset(asset_four)
 my_portfolio.add_asset(asset_five)
 my_portfolio.add_liability(liability_one)
 my_portfolio.add_liability(liability_two)
