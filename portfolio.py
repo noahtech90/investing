@@ -8,6 +8,8 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
         self.asset_distribution = {
+            'Name': [],
+            'Type': []
         }
         self.country_distribution = {
         }
@@ -29,7 +31,7 @@ class Portfolio:
 
     def add_asset(self, new_asset):
         new_asset_catagory = str(new_asset.asset_class)
-        asset_type_count = self.asset_type_counter(new_asset.asset_class)
+        asset_type_count = self.asset_type_counter(new_asset_catagory)
         self.assets.append(new_asset)
         self.asset_distribution[new_asset_catagory + str(asset_type_count + 1)] = new_asset.value
 

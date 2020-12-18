@@ -15,7 +15,7 @@ asset_four = Asset(2000, 'fixed-income', 'US', .01, .1)
 asset_five = Asset(5000, 'fixed-income', 'US', .01, .1)
 
 liability_one = Liability(1500, .03, 30)
-liability_two = Liability(1500, .03, 30)
+liability_two = Liability(6500, .03, 30)
 
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
@@ -23,6 +23,7 @@ my_portfolio.add_asset(asset_three)
 my_portfolio.add_asset(asset_four)
 my_portfolio.add_asset(asset_five)
 my_portfolio.add_liability(liability_one)
+my_portfolio.add_liability(liability_two)
 
-print(my_portfolio.asset_allocation())
-print(my_portfolio.net_worth())
+asset_df = my_portfolio.asset_allocation()
+print(asset_df)
