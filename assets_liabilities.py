@@ -1,5 +1,5 @@
 
-# Asset and Portfolio held by Portfolio class
+# Asset and Liability held by Portfolio class
 class Asset:
 
     def __init__(self, value, asset_class, country, potential_annual_return, risk):
