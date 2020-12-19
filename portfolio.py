@@ -9,15 +9,20 @@ class Portfolio:
         self.assets = []
         self.liabilities = []
 
-    def generate_dataframe(self):
+    def asset_dataframe(self):
         asset_allocation = pd.DataFrame(self.assets, columns=["Name", "Category", "Type", "Country", "Value", "Return","Risk"])
         return asset_allocation
+
+    def liability_dataframe(self):
+        liability_allocation = pd.DataFrame(self.liabilities, columns=["Name", "Category", "Value", "Interest Rate", "Contract Length"])
+        return liability_allocation
 
     def asset_type_counter(self, new_asset_class):
         counter = 0
         if len(self.assets) > 0:
             for asset in self.assets:
-                if asset[1] == new_asset_class:
+                # asset 2 holds type of equity, this should probably be replaced with a dictionary
+                if asset[2] == new_asset_class:
                     counter += 1
         return counter
 
@@ -29,5 +34,9 @@ class Portfolio:
              new_asset.potential_annual_return, new_asset.risk])
 
     def add_liability(self, new_liability):
-        self.liabilities.append(new_liability)
+        liability_type_count = len(self.liabilities)
+        new_liability_name = "liability" + str(liability_type_count + 1)
+        self.liabilities.append(
+            [new_liability_name, "liability", new_liability.value,
+             new_liability.interest_rate, new_liability.contract_length])
 

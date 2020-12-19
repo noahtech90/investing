@@ -5,10 +5,11 @@
 # ***pack annual expenses into one liability
 import time
 import pandas
+import openpyxl
+
 from portfolio import Portfolio
 from assets_liabilities import Asset, Liability
 from df_functions import percentage_country, percentage_asset, total_risk, potential_annual_return, total_assets
-
 
 my_portfolio = Portfolio()
 
@@ -44,3 +45,6 @@ print(f"Potential Return of Assets: {round(potential_annual_return(pd_assets), 3
 with pandas.ExcelWriter('portfolio.xlsx') as writer:
     pd_assets.to_excel(writer, sheet_name="assets")
     pd_liability.to_excel(writer, sheet_name="liabilities")
+
+my_workbook = openpyxl.load_workbook("C:\Users\Noah\PycharmProjects\investing\portfolio.xlsx")
+
