@@ -1,10 +1,6 @@
-import pandas as pd
+def percentage_country(portfolio):
+    return portfolio.groupby("Country")["Value"].sum() / portfolio["Value"].sum()
 
 
-class PortfolioDataFrame:
-
-    def __init__(self, df):
-        self.df = df
-
-    def market_cap(self):
-        return self.df['Value'].sum()
+def percentage_asset(portfolio):
+    return portfolio.groupby("Type")["Value"].sum() / portfolio["Value"].sum()
