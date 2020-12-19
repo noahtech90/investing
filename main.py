@@ -9,11 +9,11 @@ from df_functions import percentage_country, percentage_asset, total_risk, poten
 
 my_portfolio = Portfolio()
 
-asset_one = Asset(1000, 'equity', 'US', .1, .1)
-asset_two = Asset(1000, 'equity', 'US', .12, .2)
-asset_three = Asset(1000, 'equity', 'US', .01, .1)
-asset_four = Asset(2000, 'fixed-income', 'EM', .01, .1)
-asset_five = Asset(5000, 'equity', 'US', .01, .1)
+asset_one = Asset(1000, 'equity', 'US', .07, .1)
+asset_two = Asset(1000, 'equity', 'US', .1, .2)
+asset_three = Asset(1000, 'equity', 'US', .1, .1)
+asset_four = Asset(1000, 'fixed-income', 'EM', .1, .1)
+asset_five = Asset(1000, 'equity', 'US', .1, .1)
 
 liability_one = Liability(1500, .03, 30)
 liability_two = Liability(6500, .03, 30)
@@ -32,6 +32,8 @@ pd = my_portfolio.generate_dataframe()
 #print(f"\nAssets By Country: {percentage_country(pd)} \n")
 #print(f"Asset Allocation: {percentage_asset(pd)} \n")
 #print(f"Total Risk of Assets: {total_risk(pd)}")
+
+# Return weighted by market cap
 print(f"Potential Return of Assets: {potential_annual_return(pd)}")
 
 
