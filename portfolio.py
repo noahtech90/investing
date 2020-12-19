@@ -1,5 +1,6 @@
 import pandas as pd
 
+ # Portfolio class holds assets & liabilities and generates a dataframe
 
 class Portfolio:
 
