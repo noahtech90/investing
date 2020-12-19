@@ -7,7 +7,7 @@ def percentage_asset(portfolio):
 
 
 def total_risk(portfolio):
-    return portfolio["Risk"].sum() / len(portfolio['Risk'].index)
+    return (portfolio["Risk"] * (portfolio["Value"] / portfolio["Value"].sum())).sum()
 
 
 def potential_annual_return(portfolio):

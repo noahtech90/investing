@@ -9,31 +9,26 @@ from df_functions import percentage_country, percentage_asset, total_risk, poten
 
 my_portfolio = Portfolio()
 
-asset_one = Asset(1000, 'equity', 'US', .07, .1)
-asset_two = Asset(1000, 'equity', 'US', .1, .2)
-asset_three = Asset(1000, 'equity', 'US', .1, .1)
-asset_four = Asset(1000, 'fixed-income', 'EM', .1, .1)
-asset_five = Asset(1000, 'equity', 'US', .1, .1)
+asset_one = Asset(7000, 'equity', 'US', .1, .1)
+asset_two = Asset(1000, 'fixed-income', 'EM', .05, .2)
+
 
 liability_one = Liability(1500, .03, 30)
 liability_two = Liability(6500, .03, 30)
 
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
-my_portfolio.add_asset(asset_four)
-my_portfolio.add_asset(asset_three)
-my_portfolio.add_asset(asset_five)
-# my_portfolio.add_liability(liability_one)
-# my_portfolio.add_liability(liability_two)
 
-# portfolio_dataframe = PortfolioDataFrame(my_portfolio.generate_dataframe())
+my_portfolio.add_liability(liability_one)
+my_portfolio.add_liability(liability_two)
+
 pd = my_portfolio.generate_dataframe()
 
-#print(f"\nAssets By Country: {percentage_country(pd)} \n")
-#print(f"Asset Allocation: {percentage_asset(pd)} \n")
-#print(f"Total Risk of Assets: {total_risk(pd)}")
+print(f"\nAssets By Country: {percentage_country(pd)} \n")
+print(f"Asset Allocation: {percentage_asset(pd)} \n")
+print(f"Total Risk of Assets: {round(total_risk(pd), 3)}")
 
 # Return weighted by market cap
-print(f"Potential Return of Assets: {potential_annual_return(pd)}")
+print(f"Potential Return of Assets: {round(potential_annual_return(pd), 3)}")
 
 
