@@ -4,6 +4,7 @@
 
 # ***pack annual expenses into one liability
 import time
+import os
 import pandas
 import openpyxl
 
@@ -42,9 +43,17 @@ print(f"Total Risk of Assets: {round(total_risk(pd_assets), 3)}")
 # Return weighted by market cap
 print(f"Potential Return of Assets: {round(potential_annual_return(pd_assets), 3)}")
 
+excel_loc = "C:\\Users\\Noah\\PycharmProjects\\investing\\portfolio.xlsx"
+
+if os.path.exists(excel_loc):
+    os.remove(excel_loc)
+
 with pandas.ExcelWriter('portfolio.xlsx') as writer:
     pd_assets.to_excel(writer, sheet_name="assets")
     pd_liability.to_excel(writer, sheet_name="liabilities")
 
-my_workbook = openpyxl.load_workbook("C:\Users\Noah\PycharmProjects\investing\portfolio.xlsx")
+my_workbook = openpyxl.load_workbook(excel_loc)
+
+my_worksheet = my_workbook["assets"]
+my_worksheet["K4"] = "Test"
 
