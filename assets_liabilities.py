@@ -12,7 +12,7 @@ class Asset:
     def return_value(self):
         return self.value
 
-
+# ***pack annual expenses into one liability
 class Liability:
 
     def __init__(self, value, interest_rate, contract_length):
