@@ -16,10 +16,10 @@ from excel_reformat import format_excel
 # Establish Portfolio Class
 my_portfolio = Portfolio()
 # Create Assets
-asset_one = Asset(7000, 'Equity', 'US', .1, .1)
+asset_one = Asset(7000, 'Equity', 'US', .5, .1)
 asset_two = Asset(1000, 'Fixed', 'EM', .3, .2)
 asset_three = Asset(2000, 'Equity', 'DM', .08, .075)
-asset_four = Asset(3000, 'Equity', 'US', .06, .085)
+asset_four = Asset(30000, 'Equity', 'US', .06, .085)
 
 # Create Liabilities
 liability_one = Liability(1500, .03, 30)
@@ -55,7 +55,6 @@ portfolio_risk = round(total_risk(pd_assets), 3)
 potential_return = round(potential_annual_return(pd_assets), 3)
 portfolio_assets = total_assets(pd_assets)
 expected_returns = future_value(pd_assets, years_until_retirement)
-print(expected_returns)
 
 # Create Excel Sheet
 excel_loc = "C:\\Users\\Noah\\PycharmProjects\\investing\\portfolio.xlsx"
