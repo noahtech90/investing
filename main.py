@@ -16,26 +16,39 @@ my_portfolio = Portfolio()
 # Create Assets
 asset_one = Asset(7000, 'equity', 'US', .1, .1)
 asset_two = Asset(1000, 'fixed-income', 'EM', .05, .2)
-asset_three = Asset(4000, 'equity', 'US', .05, .2)
+asset_three = Asset(4000, 'equity', 'US', .15, .4)
+asset_four = Asset(4000, 'fixed-income', 'US', .5, .2)
+asset_five = Asset(10000, 'equity', 'US', .2, .05)
+asset_six = Asset(4000, 'fixed-income', 'US', .05, .05)
+
 # Create Liabilities
 liability_one = Liability(1500, .03, 30)
 liability_two = Liability(6500, .03, 30)
+
 # Add Assets to Portfolio
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
 my_portfolio.add_asset(asset_three)
+my_portfolio.add_asset(asset_four)
+my_portfolio.add_asset(asset_five)
+my_portfolio.add_asset(asset_six)
+
+
 # Add Liabilities to Portfolio
 my_portfolio.add_liability(liability_one)
 my_portfolio.add_liability(liability_two)
+
 # Create Asset and Liabilities Dataframes
 pd_assets = my_portfolio.asset_dataframe()
 pd_liability = my_portfolio.liability_dataframe()
+
 # Run analysis on Portfolio
 country_distributon = percentage_country(pd_assets)
 asset_distribution = percentage_asset(pd_assets)
 portfolio_risk = round(total_risk(pd_assets), 3)
 potential_return = round(potential_annual_return(pd_assets), 3)
 
+# Create Excel Sheet
 excel_loc = "C:\\Users\\Noah\\PycharmProjects\\investing\\portfolio.xlsx"
 
 if os.path.exists(excel_loc):
@@ -44,9 +57,14 @@ if os.path.exists(excel_loc):
 with pandas.ExcelWriter('portfolio.xlsx') as writer:
     pd_assets.to_excel(writer, sheet_name="assets")
     pd_liability.to_excel(writer, sheet_name="liabilities")
+    country_distributon.to_excel(writer, sheet_name="assets", startrow=0, startcol=9)
+    asset_distribution.to_excel(writer, sheet_name="assets", startrow=5, startcol=9)
 
 my_workbook = openpyxl.load_workbook(excel_loc)
 
 my_worksheet = my_workbook["assets"]
-my_worksheet["K4"] = "Test"
+my_worksheet["N1"] = "Portfolio Risk"
+my_worksheet["M1"] = "Potential Return"
+my_worksheet["N2"] = portfolio_risk
+my_worksheet["M2"] = potential_return
 my_workbook.save(excel_loc)
