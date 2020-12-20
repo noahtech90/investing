@@ -27,9 +27,12 @@ def format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets, 
     my_worksheet["M7"].value = round(portfolio_assets, 2)
     my_worksheet["M7"].number_format = "$ 0.00"
 
-    my_worksheet["K7"].value = round(years_until_retirement, 2)
+    my_worksheet["H7"].value = "Expected Value"
+    my_worksheet["G7"].value = "Years Until Retirement"
 
-    my_worksheet["H7"].value = round(portfolio_future_value, 2)
+    my_worksheet["G8"] = round(years_until_retirement, 2)
+
+    my_worksheet["H8"].value = round(portfolio_future_value, 2)
     my_worksheet["H8"].number_format = "$ 0.00"
 
     my_workbook.save(excel_loc)
