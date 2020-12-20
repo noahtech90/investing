@@ -20,3 +20,6 @@ def potential_annual_return(portfolio):
 # Return total value of current assets
 def total_assets(portfolio):
     return portfolio["Value"].sum()
+
+def future_value(portfolio, years):
+    return total_assets(portfolio)(1 + potential_annual_return(portfolio)^years)
