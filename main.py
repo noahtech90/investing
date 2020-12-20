@@ -56,10 +56,8 @@ with pandas.ExcelWriter('portfolio.xlsx') as writer:
     country_distributon.to_excel(writer, sheet_name="assets", startrow=0, startcol=9)
     asset_distribution.to_excel(writer, sheet_name="assets", startrow=5, startcol=9)
 
-my_workbook = openpyxl.load_workbook(excel_loc)
-
 # Plug analysis into excel sheet
-
+my_workbook = openpyxl.load_workbook(excel_loc)
 my_worksheet = my_workbook["assets"]
 my_worksheet["N1"] = "Portfolio Risk"
 my_worksheet["M1"] = "Potential Return"
