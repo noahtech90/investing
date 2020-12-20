@@ -1,4 +1,3 @@
-
 # Asset and Liability held by Portfolio class
 class Asset:
 
@@ -11,6 +10,7 @@ class Asset:
 
     def return_value(self):
         return self.value
+
 
 # ***pack annual expenses into one liability
 class Liability:

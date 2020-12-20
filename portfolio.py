@@ -1,6 +1,7 @@
 import pandas as pd
 
- # Portfolio class holds assets & liabilities and generates a dataframe
+
+# Portfolio class holds assets & liabilities and generates a dataframe
 
 class Portfolio:
 
@@ -10,11 +11,13 @@ class Portfolio:
         self.liabilities = []
 
     def asset_dataframe(self):
-        asset_allocation = pd.DataFrame(self.assets, columns=["Name", "Category", "Type", "Country", "Value", "Return","Risk"])
+        asset_allocation = pd.DataFrame(self.assets,
+                                        columns=["Name", "Category", "Type", "Country", "Value", "Return", "Risk"])
         return asset_allocation
 
     def liability_dataframe(self):
-        liability_allocation = pd.DataFrame(self.liabilities, columns=["Name", "Category", "Value", "Interest Rate", "Contract Length"])
+        liability_allocation = pd.DataFrame(self.liabilities,
+                                            columns=["Name", "Category", "Value", "Interest Rate", "Contract Length"])
         return liability_allocation
 
     def asset_type_counter(self, new_asset_class):
@@ -39,4 +42,3 @@ class Portfolio:
         self.liabilities.append(
             [new_liability_name, "liability", new_liability.value,
              new_liability.interest_rate, new_liability.contract_length])
-

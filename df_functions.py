@@ -17,9 +17,11 @@ def total_risk(portfolio):
 def potential_annual_return(portfolio):
     return (portfolio["Return"] * (portfolio["Value"] / portfolio["Value"].sum())).sum()
 
+
 # Return total value of current assets
 def total_assets(portfolio):
     return portfolio["Value"].sum()
 
+
 def future_value(portfolio, years):
-    return total_assets(portfolio)(1 + potential_annual_return(portfolio)^years)
+    return total_assets(portfolio)(1 + potential_annual_return(portfolio) ^ years)
