@@ -3,7 +3,7 @@ import os
 import openpyxl
 
 
-def format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets):
+def format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets, years_until_retirement, portfolio_future_value):
     # Plug analysis into excel sheet
     my_workbook = openpyxl.load_workbook(excel_loc)
     my_worksheet = my_workbook["assets"]
@@ -26,5 +26,10 @@ def format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets):
     my_worksheet["M6"] = "Total Value"
     my_worksheet["M7"].value = round(portfolio_assets, 2)
     my_worksheet["M7"].number_format = "$ 0.00"
+
+    my_worksheet["K7"].value = round(years_until_retirement, 2)
+
+    my_worksheet["H7"].value = round(portfolio_future_value, 2)
+    my_worksheet["H8"].number_format = "$ 0.00"
 
     my_workbook.save(excel_loc)
