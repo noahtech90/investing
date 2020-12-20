@@ -14,12 +14,12 @@ from df_functions import percentage_country, percentage_asset, total_risk, poten
 # Establish Portfolio Class
 my_portfolio = Portfolio()
 # Create Assets
-asset_one = Asset(7000, 'equity', 'US', .1, .1)
-asset_two = Asset(1000, 'fixed-income', 'EM', .05, .2)
-asset_three = Asset(4000, 'equity', 'US', .15, .4)
-asset_four = Asset(4000, 'fixed-income', 'US', .5, .2)
-asset_five = Asset(10000, 'equity', 'US', .2, .05)
-asset_six = Asset(4000, 'fixed-income', 'US', .05, .05)
+asset_one = Asset(7000, 'Equity', 'US', .1, .1)
+asset_two = Asset(1000, 'Fixed', 'EM', .05, .2)
+asset_three = Asset(4000, 'Equity', 'US', .15, .4)
+asset_four = Asset(4000, 'Fixed', 'US', .5, .2)
+asset_five = Asset(10000, 'Equity', 'US', .2, .05)
+asset_six = Asset(4000, '', 'US', .05, .05)
 
 # Create Liabilities
 liability_one = Liability(1500, .03, 30)
@@ -58,7 +58,7 @@ with pandas.ExcelWriter('portfolio.xlsx') as writer:
     pd_assets.to_excel(writer, sheet_name="assets")
     pd_liability.to_excel(writer, sheet_name="liabilities")
     country_distributon.to_excel(writer, sheet_name="assets", startrow=0, startcol=9)
-    asset_distribution.to_excel(writer, sheet_name="assets", startrow=5, startcol=9)
+    asset_distribution.to_excel(writer, sheet_name="assets", startrow=4, startcol=9)
 
 my_workbook = openpyxl.load_workbook(excel_loc)
 
