@@ -16,10 +16,6 @@ my_portfolio = Portfolio()
 # Create Assets
 asset_one = Asset(7000, 'Equity', 'US', .1, .1)
 asset_two = Asset(1000, 'Fixed', 'EM', .05, .2)
-asset_three = Asset(4000, 'Equity', 'US', .15, .4)
-asset_four = Asset(4000, 'Fixed', 'US', .5, .2)
-asset_five = Asset(10000, 'Equity', 'US', .2, .05)
-asset_six = Asset(4000, 'Fixed', 'US', .05, .05)
 
 # Create Liabilities
 liability_one = Liability(1500, .03, 30)
@@ -28,10 +24,6 @@ liability_two = Liability(6500, .03, 30)
 # Add Assets to Portfolio
 my_portfolio.add_asset(asset_one)
 my_portfolio.add_asset(asset_two)
-my_portfolio.add_asset(asset_three)
-my_portfolio.add_asset(asset_four)
-my_portfolio.add_asset(asset_five)
-my_portfolio.add_asset(asset_six)
 
 
 # Add Liabilities to Portfolio
