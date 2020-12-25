@@ -29,7 +29,11 @@
 
   .table {
       outline: solid lightblue;
+      outline-width: 1px;
+  }
 
+  .table th {
+    background-color: lightgreen;
   }
 
   .topnav {
