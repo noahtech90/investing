@@ -50,8 +50,19 @@
 
 
   .form-group {
-    background-color: rgb(135, 212, 209);
+    background-color: rgb(124, 125, 197);
     padding: 1.6rem;
+  }
+
+  .form-title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .contact-form-group {
+    width: 90%;
+    justify-content: center;
+    text-align: center;
   }
 
 

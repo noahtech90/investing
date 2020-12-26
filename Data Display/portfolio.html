@@ -19,6 +19,52 @@
         <a href="contact.html">Contact Us</a>
     </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <form action="#=go" class="form-group mt-4">
+                    <h2 class="form-title">Add An Asset</h2>
+
+                    <label for="type">Asset Type</label>
+                    <select name="type" id="type" form="form-group" class="form-control">
+                        <option value="equity">Equity</option>
+                        <option value="fixed">Fixed Income</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="private">Private</option>
+                    </select>
+
+                    <label for="country">Country</label>
+                    <input id="country" name="country" type="text" class="form-control">
+
+
+                    <label for="value">Value</label>
+                    <input id="value" name="value" type="number" class="form-control">
+
+
+                    <button class="btn btn-dark mt-4" style="width: 100%;">Submit</button>
+
+                </form>
+
+                <form action="#=go" class="form-group mt-4">
+                    <h2 class="form-title">Add A Liability</h2>
+
+                    <label for="value">Value</label>
+                    <input id="value" name="value" type="number" class="form-control">
+
+                    <label for="type">Interest Rate</label>
+                    <input type=" text" id="interest" class="form-control">
+
+                    <label for=" time">Length of Contract</label>
+                    <input id="time" name="time" type="num" class="form-control">
+
+
+                    <button class="btn btn-dark mt-4" style="width: 100%;">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
