@@ -10,7 +10,7 @@ import openpyxl
 from portfolio import Portfolio
 from assets_liabilities import Asset, Liability
 from df_functions import percentage_country, percentage_asset, total_risk, \
-    potential_annual_return, total_assets, future_value
+    potential_annual_return, total_assets, future_value, potential_risk
 from excel_reformat import format_excel
 
 # Establish Portfolio Class
@@ -46,7 +46,9 @@ pd_assets = my_portfolio.asset_dataframe()
 pd_liability = my_portfolio.liability_dataframe()
 
 # Collect Age Variable
-age = input("What is your age?\n")
+#age = input("What is your age?\n")
+age = 23
+years_until_retirement = 23
 while type(age) is str:
     try:
         age = int(age)
@@ -54,15 +56,20 @@ while type(age) is str:
     except:
         age = input("Please enter a number, what is your age?\n")
 
-# Run analysis on Portfolio
+# Run analysis on Portfolio Assets
 country_distributon = percentage_country(pd_assets)
 asset_distribution = percentage_asset(pd_assets)
 portfolio_risk = round(total_risk(pd_assets), 3)
 potential_return = round(potential_annual_return(pd_assets), 3)
 portfolio_assets = total_assets(pd_assets)
 expected_returns = future_value(pd_assets, years_until_retirement)
+print(potential_risk(pd_assets))
 
+
+
+"""
 # Create Excel Sheet
+
 excel_loc = "C:\\Users\\Noah\\PycharmProjects\\investing\\portfolio.xlsx"
 
 if os.path.exists(excel_loc):
@@ -78,3 +85,4 @@ with pandas.ExcelWriter('portfolio.xlsx') as writer:
 format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets, years_until_retirement, expected_returns)
 
 # os.system("open -a 'path/Microsoft Excel.app' 'path/file.xlsx'")
+"""

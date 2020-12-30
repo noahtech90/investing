@@ -31,4 +31,7 @@ def future_value(portfolio, years):
 def potential_risk(portfolio):
     country_allocation = percentage_country(portfolio)
     asset_allocation = percentage_asset(portfolio)
-    
+    combined = country_allocation + asset_allocation
+    return country_allocation
+
+
