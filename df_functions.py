@@ -23,5 +23,12 @@ def total_assets(portfolio):
     return portfolio["Value"].sum()
 
 
+# Future value of current investments
 def future_value(portfolio, years):
-    return portfolio["Value"].sum()*(1 + (portfolio["Return"] * portfolio["Value"] / portfolio["Value"].sum()).sum())**years
+    return portfolio["Value"].sum() * (
+                1 + (portfolio["Return"] * portfolio["Value"] / portfolio["Value"].sum()).sum()) ** years
+
+def potential_risk(portfolio):
+    country_allocation = percentage_country(portfolio)
+    asset_allocation = percentage_asset(portfolio)
+    
