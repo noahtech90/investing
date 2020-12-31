@@ -63,7 +63,7 @@ portfolio_risk = round(total_risk(pd_assets), 3)
 potential_return = round(potential_annual_return(pd_assets), 3)
 portfolio_assets = total_assets(pd_assets)
 expected_returns = future_value(pd_assets, years_until_retirement)
-print(potential_risk(pd_assets))
+risk = potential_risk(pd_assets)
 
 
 
