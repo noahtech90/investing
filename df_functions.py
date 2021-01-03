@@ -30,21 +30,22 @@ def future_value(portfolio, years):
 
 def potential_risk(portfolio):
     country_allocation = percentage_country(portfolio)
+    asset_allocation = percentage_asset(portfolio)
     risks = []
     i = 0
+    j = 0
 
     for country_percentage in country_allocation:
         if country_percentage > .7:
             risks.append([country_allocation.index[i], country_percentage])
         i += 1
 
-        print(risks)
+    for asset_percentage in asset_allocation:
+        if asset_percentage > .7:
+            risks.append([asset_allocation.index[j], asset_percentage])
+        j += 1
 
-
-
-
-
-
-    return country_allocation
+    print(risks)
+    return risks
 
 
