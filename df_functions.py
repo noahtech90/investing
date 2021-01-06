@@ -39,15 +39,15 @@ def potential_risk(portfolio):
     j = 0
 
     for country_percentage in country_allocation:
-        if country_percentage > .7:
+        if country_percentage > .8:
             risks.append([country_allocation.index[i], country_percentage, 'country'])
         i += 1
 
     for asset_percentage in asset_allocation:
-        if asset_percentage > .7:
+        if asset_percentage > .8:
             risks.append([asset_allocation.index[j], asset_percentage, 'asset'])
         j += 1
 
-    df_risks = pd.DataFrame.from_records(risks)
+    df_risks = pd.DataFrame.from_records(risks, columns=["Overweight", "Percent", "Risk Type"])
     print(df_risks)
     return df_risks

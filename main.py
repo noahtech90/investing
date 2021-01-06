@@ -35,7 +35,7 @@ my_portfolio.add_asset(asset_three)
 my_portfolio.add_asset(asset_four)
 my_portfolio.add_asset(asset_five)
 my_portfolio.add_asset(asset_six)
-my_portfolio.add_asset(asset_seven)
+#my_portfolio.add_asset(asset_seven)
 
 # Add Liabilities to Portfolio
 my_portfolio.add_liability(liability_one)
