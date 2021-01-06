@@ -26,7 +26,8 @@ def total_assets(portfolio):
 # Future value of current investments
 def future_value(portfolio, years):
     return portfolio["Value"].sum() * (
-                1 + (portfolio["Return"] * portfolio["Value"] / portfolio["Value"].sum()).sum()) ** years
+            1 + (portfolio["Return"] * portfolio["Value"] / portfolio["Value"].sum()).sum()) ** years
+
 
 def potential_risk(portfolio):
     country_allocation = percentage_country(portfolio)
@@ -37,15 +38,13 @@ def potential_risk(portfolio):
 
     for country_percentage in country_allocation:
         if country_percentage > .7:
-            risks.append([country_allocation.index[i], country_percentage])
+            risks.append([country_allocation.index[i], country_percentage, 'country'])
         i += 1
 
     for asset_percentage in asset_allocation:
         if asset_percentage > .7:
-            risks.append([asset_allocation.index[j], asset_percentage])
+            risks.append([asset_allocation.index[j], asset_percentage, 'asset'])
         j += 1
 
     print(risks)
     return risks
-
-
