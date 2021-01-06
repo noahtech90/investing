@@ -1,3 +1,5 @@
+import pandas as pd
+
 # Country weighting
 def percentage_country(portfolio):
     return portfolio.groupby("Country")["Value"].sum() / portfolio["Value"].sum()
@@ -46,5 +48,6 @@ def potential_risk(portfolio):
             risks.append([asset_allocation.index[j], asset_percentage, 'asset'])
         j += 1
 
-    print(risks)
-    return risks
+    df_risks = pd.DataFrame.from_records(risks)
+    print(df_risks)
+    return df_risks

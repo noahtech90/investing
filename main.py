@@ -67,7 +67,7 @@ risk = potential_risk(pd_assets)
 
 
 
-"""
+
 # Create Excel Sheet
 
 excel_loc = "C:\\Users\\Noah\\PycharmProjects\\investing\\portfolio.xlsx"
@@ -80,9 +80,9 @@ with pandas.ExcelWriter('portfolio.xlsx') as writer:
     pd_liability.to_excel(writer, sheet_name="liabilities")
     country_distributon.to_excel(writer, sheet_name="assets", startrow=0, startcol=9)
     asset_distribution.to_excel(writer, sheet_name="assets", startrow=5, startcol=9)
+    risk.to_excel(writer, sheet_name="assets", startrow=14, startcol=9)
 
 # Format Excel Sheet
 format_excel(excel_loc, portfolio_risk, potential_return, portfolio_assets, years_until_retirement, expected_returns)
 
 # os.system("open -a 'path/Microsoft Excel.app' 'path/file.xlsx'")
-"""
